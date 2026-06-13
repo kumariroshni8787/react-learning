@@ -405,3 +405,207 @@ Advantages of Vite:
 ## Day 2 Summary
 
 Today, you learned how to set up a React development environment. You installed the required tools, created a React project using Vite, installed dependencies, ran the development server, and explored the basic project structure.
+
+
+
+# Day 3 - React Components
+
+## 📅 Day 3 Overview
+
+Today I learned about **React Components**.
+
+Components are the building blocks of a React application. Instead of writing all UI code in one file, React allows us to split the UI into small reusable pieces called components.
+
+---
+
+# What is a Component?
+
+A component is a JavaScript function that returns JSX (UI).
+
+### Example
+
+```jsx
+function Welcome() {
+  return <h1>Hello World</h1>;
+}
+```
+
+This component can be used anywhere inside the application.
+
+```jsx
+<Welcome />
+```
+
+Output:
+
+```text
+Hello World
+```
+
+---
+
+# Why Use Components?
+
+Components help us:
+
+* Reuse code
+* Keep code organized
+* Improve readability
+* Make applications easier to maintain
+
+Instead of repeating the same UI multiple times, we create one component and use it wherever needed.
+
+---
+
+# Creating a Component
+
+### UserCard.jsx
+
+```jsx
+function UserCard() {
+  return (
+    <div>
+      <h2>John Doe</h2>
+      <p>Frontend Developer</p>
+    </div>
+  );
+}
+
+export default UserCard;
+```
+
+---
+
+# Using a Component
+
+### App.jsx
+
+```jsx
+import UserCard from "./UserCard";
+
+function App() {
+  return (
+    <div>
+      <UserCard />
+    </div>
+  );
+}
+
+export default App;
+```
+
+---
+
+# Component Naming Rules
+
+✅ Component names should start with a capital letter.
+
+Correct:
+
+```jsx
+function Header() {
+  return <h1>Header</h1>;
+}
+```
+
+❌ Incorrect:
+
+```jsx
+function header() {
+  return <h1>Header</h1>;
+}
+```
+
+React treats lowercase names as HTML elements.
+
+---
+
+# Types of Components
+
+## 1. Functional Components
+
+Modern React mainly uses functional components.
+
+```jsx
+function Greeting() {
+  return <h1>Welcome to React</h1>;
+}
+```
+
+---
+
+## 2. Class Components
+
+Older React applications may use class components.
+
+```jsx
+class Greeting extends React.Component {
+  render() {
+    return <h1>Welcome to React</h1>;
+  }
+}
+```
+
+Today, functional components are preferred.
+
+---
+
+# Reusing Components
+
+A component can be used multiple times.
+
+```jsx
+function App() {
+  return (
+    <div>
+      <UserCard />
+      <UserCard />
+      <UserCard />
+    </div>
+  );
+}
+```
+
+This helps avoid code duplication.
+
+---
+
+# Folder Structure Example
+
+```text
+src/
+│
+├── components/
+│   ├── UserCard.jsx
+│   └── Header.jsx
+│
+├── App.jsx
+└── main.jsx
+```
+
+Keeping components in a separate folder improves project organization.
+
+---
+
+# Key Points
+
+* Components are reusable UI blocks.
+* Components are usually created as functions.
+* Component names must start with a capital letter.
+* Components return JSX.
+* Components help keep code modular and organized.
+* Components can be reused multiple times.
+
+---
+
+# Day 3 Summary
+
+Today I learned about React Components.
+
+Components are reusable pieces of UI that help build React applications efficiently. I learned how to create components, use them inside other components, follow naming conventions, and organize component files properly. Components make React applications cleaner, more maintainable, and easier to scale.
+
+
+
+
+
+
