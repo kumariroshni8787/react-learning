@@ -173,3 +173,235 @@ These technologies are prerequisites for learning React effectively.
 ## Day 1 Summary
 
 Today was an introduction to React. You learned what React is, why it is used, its advantages over traditional JavaScript development, and the types of applications that can be built using React. You also learned about important concepts such as Components, Virtual DOM, Reusability, and SPA (Single Page Applications).
+
+
+
+
+# Day 2 - React Setup & Environment Configuration
+
+## Introduction
+
+Before building React applications, we need to set up the development environment on our system.
+
+Today, we learned how to prepare our machine for React development and create our first React project.
+
+---
+
+## Prerequisites
+
+Before installing React, make sure the following tools are installed:
+
+### 1. Node.js
+
+Node.js allows JavaScript to run outside the browser and is required for React development.
+
+Benefits:
+
+* Runs JavaScript on the server
+* Provides npm (Node Package Manager)
+* Helps manage project dependencies
+
+Check installation:
+
+```bash
+node -v
+```
+
+---
+
+### 2. npm (Node Package Manager)
+
+npm comes with Node.js and is used to install packages and libraries.
+
+Check installation:
+
+```bash
+npm -v
+```
+
+---
+
+### 3. VS Code
+
+A popular code editor used for writing React applications.
+
+Features:
+
+* Fast and lightweight
+* Extension support
+* Integrated terminal
+* Git integration
+
+---
+
+## Creating a React Project
+
+One of the easiest ways to create a React project is using Vite.
+
+Create a new project:
+
+```bash
+npm create vite@latest
+```
+
+Follow the prompts:
+
+1. Enter project name
+2. Select Framework → React
+3. Select Variant → JavaScript
+
+---
+
+## Installing Dependencies
+
+Move into the project folder:
+
+```bash
+cd project-name
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+This command downloads all required packages for the project.
+
+---
+
+## Running the Development Server
+
+Start the React application:
+
+```bash
+npm run dev
+```
+
+After running this command, Vite provides a local development URL.
+
+Example:
+
+```text
+http://localhost:5173
+```
+
+Open it in the browser to see the React application.
+
+---
+
+## Project Structure Overview
+
+A basic React project contains:
+
+```text
+project-name/
+│
+├── node_modules/
+├── public/
+├── src/
+│   ├── App.jsx
+│   ├── main.jsx
+│
+├── package.json
+├── vite.config.js
+└── index.html
+```
+
+---
+
+## Important Files
+
+### App.jsx
+
+Main component of the application.
+
+Used to build the UI.
+
+---
+
+### main.jsx
+
+Entry point of the React application.
+
+Connects React with the HTML page.
+
+---
+
+### package.json
+
+Contains:
+
+* Project information
+* Dependencies
+* Scripts
+* Package versions
+
+---
+
+### public Folder
+
+Stores static assets such as:
+
+* Images
+* Icons
+* Static files
+
+---
+
+### src Folder
+
+Contains the main application code.
+
+Most React development happens inside this folder.
+
+---
+
+## Why Use Vite?
+
+Advantages of Vite:
+
+* Faster startup time
+* Fast hot reloading
+* Lightweight
+* Modern development experience
+* Easy project setup
+
+---
+
+## Key Terms Learned Today
+
+* Node.js
+* npm
+* Vite
+* Dependencies
+* Development Server
+* package.json
+* App.jsx
+* main.jsx
+
+---
+
+## Key Takeaways
+
+* React development requires Node.js and npm.
+* Vite helps create React projects quickly.
+* npm install installs project dependencies.
+* npm run dev starts the development server.
+* Most React code is written inside the src folder.
+* App.jsx is the main component of the application.
+
+---
+
+## Practice Task
+
+1. Install Node.js.
+2. Install VS Code.
+3. Create a React project using Vite.
+4. Run the project successfully.
+5. Explore the project folder structure.
+6. Open App.jsx and understand its role.
+
+## Day 2 Summary
+
+Today, you learned how to set up a React development environment. You installed the required tools, created a React project using Vite, installed dependencies, ran the development server, and explored the basic project structure.
