@@ -1,12 +1,11 @@
-import UserCard from "./UserCard";
+import ProfileCard from "./ProfileCard";
+
 function App() {
   return (
     <div>
-      <h1>My First React Component</h1>
-      <UserCard />
-      <UserCard />
-      <UserCard />
+      <ProfileCard />
     </div>
   );
 }
+
 export default App;
