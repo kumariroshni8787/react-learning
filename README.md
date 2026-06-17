@@ -724,3 +724,191 @@ Topic: Styling Practice in React
 Practice different styling methods in React and understand when to use each one.
 
 
+
+# Day 6 - Props in React
+
+## What are Props?
+
+**Props** (short for Properties) are used to pass data from a **parent component** to a **child component**.
+
+Props make components reusable because the same component can display different data based on the values passed to it.
+
+---
+
+## Why Use Props?
+
+* Pass data between components
+* Make components reusable
+* Create dynamic UI
+* Keep components flexible
+
+---
+
+## Basic Example
+
+### Child Component
+
+```jsx
+function Welcome(props) {
+  return <h2>Welcome {props.name}</h2>;
+}
+
+export default Welcome;
+```
+
+### Parent Component
+
+```jsx
+import Welcome from "./Welcome";
+
+function App() {
+  return (
+    <>
+      <Welcome name="Rahul" />
+      <Welcome name="Aman" />
+      <Welcome name="Priya" />
+    </>
+  );
+}
+
+export default App;
+```
+
+### Output
+
+```text
+Welcome Rahul
+Welcome Aman
+Welcome Priya
+```
+
+---
+
+## Props Using Destructuring
+
+Instead of writing `props.name`, we can extract values directly.
+
+```jsx
+function Welcome({ name }) {
+  return <h2>Welcome {name}</h2>;
+}
+```
+
+This approach is cleaner and easier to read.
+
+---
+
+## Passing Multiple Props
+
+```jsx
+function Student({ name, age, course }) {
+  return (
+    <div>
+      <h3>Name: {name}</h3>
+      <p>Age: {age}</p>
+      <p>Course: {course}</p>
+    </div>
+  );
+}
+```
+
+### Parent Component
+
+```jsx
+<Student
+  name="Rahul"
+  age={21}
+  course="React"
+/>
+```
+
+---
+
+## Props are Read-Only
+
+Props cannot be modified inside the child component.
+
+❌ Wrong
+
+```jsx
+props.name = "New Name";
+```
+
+✅ Correct
+
+Use the value received from the parent.
+
+```jsx
+<h2>{props.name}</h2>
+```
+
+---
+
+## Passing Data of Different Types
+
+### String
+
+```jsx
+<User name="Rahul" />
+```
+
+### Number
+
+```jsx
+<User age={21} />
+```
+
+### Boolean
+
+```jsx
+<User isLoggedIn={true} />
+```
+
+### Array
+
+```jsx
+<User skills={["HTML", "CSS", "React"]} />
+```
+
+### Object
+
+```jsx
+<User user={{ name: "Rahul", age: 21 }} />
+```
+
+### Function
+
+```jsx
+<Button handleClick={showMessage} />
+```
+
+---
+
+## Default Props
+
+Default values can be provided if a prop is not passed.
+
+```jsx
+function Welcome({ name = "Guest" }) {
+  return <h2>Welcome {name}</h2>;
+}
+```
+
+---
+
+## Key Points
+
+* Props stand for Properties.
+* Props are used to pass data from parent to child components.
+* Props make components reusable.
+* Props are read-only.
+* Props can store strings, numbers, arrays, objects, booleans, and functions.
+* Destructuring props improves readability.
+
+---
+
+# Day 6 Summary
+
+Today I learned about **Props in React**.
+
+Props are used to transfer data from a parent component to a child component. They help create reusable and dynamic components. I learned how to pass single and multiple props, use destructuring, pass different data types, and understand that props are read-only.
