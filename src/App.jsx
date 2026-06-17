@@ -64,37 +64,68 @@
 
 // export default App;
 
+// import { useState } from "react";
+
+// function App() {
+//   const [name, setName] = useState("");
+//   const [email, setEmail] = useState("");
+
+//   return (
+//     <div>
+//       <h2>Registration Form</h2>
+
+//       <input
+//         type="text"
+//         placeholder="Enter Name"
+//         value={name}
+//         onChange={(e) => setName(e.target.value)}
+//       />
+
+//       <br />
+//       <br />
+
+//       <input
+//         type="email"
+//         placeholder="Enter Email"
+//         value={email}
+//         onChange={(e) => setEmail(e.target.value)}
+//       />
+
+//       <h3>Submitted Data</h3>
+
+//       <p>Name: {name}</p>
+//       <p>Email: {email}</p>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
 import { useState } from "react";
 
 function App() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div>
-      <h2>Registration Form</h2>
+      <h1>Authentication App</h1>
 
-      <input
-        type="text"
-        placeholder="Enter Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <br />
-      <br />
-
-      <input
-        type="email"
-        placeholder="Enter Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <h3>Submitted Data</h3>
-
-      <p>Name: {name}</p>
-      <p>Email: {email}</p>
+      {isLoggedIn ? (
+        <>
+          <h2>Welcome User</h2>
+          <button onClick={() => setIsLoggedIn(false)}>
+            Logout
+          </button>
+        </>
+      ) : (
+        <>
+          <h2>Please Login</h2>
+          <button onClick={() => setIsLoggedIn(true)}>
+            Login
+          </button>
+        </>
+      )}
     </div>
   );
 }

@@ -1835,3 +1835,231 @@ Building a simple Registration Form
 Displaying form data dynamically on the screen
 
 This helped me understand how React controls and updates form data through state.
+
+
+
+# Day 11 - Conditional Rendering
+
+## Introduction
+
+Conditional Rendering means showing different UI based on certain conditions.
+
+In React, we often display components, messages, or buttons depending on the application's state.
+
+Examples:
+
+* Login / Logout UI
+* Loading Screen
+* User Dashboard
+* Error Messages
+
+---
+
+## What is Conditional Rendering?
+
+Conditional Rendering allows React to render different content based on a condition.
+
+Just like JavaScript uses conditions (`if`, `else`, ternary operator), React can also use them inside components.
+
+---
+
+## Method 1: Using if...else
+
+Use `if...else` when you need to return completely different UI.
+
+### Example
+
+```jsx
+function App() {
+  const isLoggedIn = true;
+
+  if (isLoggedIn) {
+    return <h1>Welcome User</h1>;
+  } else {
+    return <h1>Please Login</h1>;
+  }
+}
+
+export default App;
+```
+
+### Output
+
+* If `isLoggedIn` is true → Welcome User
+* If `isLoggedIn` is false → Please Login
+
+---
+
+## Method 2: Using Ternary Operator
+
+The ternary operator is the most commonly used approach in React.
+
+### Syntax
+
+```jsx
+condition ? trueValue : falseValue
+```
+
+### Example
+
+```jsx
+function App() {
+  const isLoggedIn = true;
+
+  return (
+    <div>
+      {isLoggedIn ? <h1>Home Page</h1> : <h1>Login Page</h1>}
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Output
+
+* True → Home Page
+* False → Login Page
+
+---
+
+## Method 3: Using Logical && Operator
+
+Use `&&` when you only want to render something if a condition is true.
+
+### Syntax
+
+```jsx
+condition && component
+```
+
+### Example
+
+```jsx
+function App() {
+  const isAdmin = true;
+
+  return (
+    <div>
+      {isAdmin && <h2>Admin Panel</h2>}
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Output
+
+* True → Admin Panel is displayed
+* False → Nothing is displayed
+
+---
+
+## Practice Example
+
+```jsx
+function Home() {
+  return <h2>Welcome to Home Page</h2>;
+}
+
+function Login() {
+  return <h2>Please Login</h2>;
+}
+
+function App() {
+  const isLogin = true;
+
+  return (
+    <div>
+      {isLogin ? <Home /> : <Login />}
+    </div>
+  );
+}
+
+export default App;
+```
+
+---
+
+## Mini Task: Login / Logout UI
+
+### Goal
+
+Display Login or Logout UI based on user status.
+
+### Example
+
+```jsx
+import { useState } from "react";
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  return (
+    <div>
+      <h1>Authentication App</h1>
+
+      {isLoggedIn ? (
+        <>
+          <h2>Welcome User</h2>
+          <button onClick={() => setIsLoggedIn(false)}>
+            Logout
+          </button>
+        </>
+      ) : (
+        <>
+          <h2>Please Login</h2>
+          <button onClick={() => setIsLoggedIn(true)}>
+            Login
+          </button>
+        </>
+      )}
+    </div>
+  );
+}
+
+export default App;
+```
+
+### How It Works
+
+1. `isLoggedIn` state stores login status.
+2. Ternary operator checks the state.
+3. Different UI is rendered for login and logout.
+4. Clicking the button updates the state.
+5. React automatically re-renders the UI.
+
+---
+
+## Key Concepts Learned
+
+* Conditional Rendering
+* if...else statement
+* Ternary Operator
+* Logical && Operator
+* Rendering Components Conditionally
+* Login / Logout UI
+
+---
+
+## Best Practice
+
+* Use `if...else` for large UI changes.
+* Use ternary operators for simple conditions.
+* Use `&&` when rendering something only if a condition is true.
+* Keep conditions readable and simple.
+
+📝 Day 11 Summary
+
+Today I learned Conditional Rendering in React.
+
+I practiced:
+
+Using if...else to render different UI
+Using the ternary operator for conditional display
+Using logical && to show content only when a condition is true
+Rendering components based on user status
+Building a simple Login / Logout interface
+
+Conditional Rendering helps create dynamic user interfaces that change based on application state.
