@@ -912,3 +912,192 @@ function Welcome({ name = "Guest" }) {
 Today I learned about **Props in React**.
 
 Props are used to transfer data from a parent component to a child component. They help create reusable and dynamic components. I learned how to pass single and multiple props, use destructuring, pass different data types, and understand that props are read-only.
+
+
+# Day 7 - Child Component to Parent Component Communication
+
+## Introduction
+
+In React, data normally flows from **Parent → Child** using Props.
+
+Sometimes, a child component needs to send data back to its parent. React achieves this by passing a function from the parent to the child through props.
+
+The child component calls that function and sends data to the parent.
+
+---
+
+## Data Flow in React
+
+```text
+Parent Component
+       ↓
+      Props
+       ↓
+Child Component
+
+Child Component
+       ↓
+ Calls Function
+       ↓
+Parent Component
+```
+
+---
+
+## How Child Sends Data to Parent
+
+### Step 1: Create a Function in Parent
+
+```jsx
+function App() {
+  const getData = (data) => {
+    console.log(data);
+  };
+
+  return <Child sendData={getData} />;
+}
+```
+
+---
+
+### Step 2: Receive Function in Child
+
+```jsx
+function Child({ sendData }) {
+  return (
+    <button onClick={() => sendData("Hello Parent!")}>
+      Send Data
+    </button>
+  );
+}
+```
+
+---
+
+### Step 3: Output
+
+```text
+Hello Parent!
+```
+
+When the button is clicked, the child component calls the parent's function and sends data.
+
+---
+
+## Complete Example
+
+### Child Component
+
+```jsx
+function Child({ sendMessage }) {
+  return (
+    <button onClick={() => sendMessage("Message from Child Component")}>
+      Send Message
+    </button>
+  );
+}
+
+export default Child;
+```
+
+### Parent Component
+
+```jsx
+import Child from "./Child";
+
+function App() {
+  const handleMessage = (msg) => {
+    alert(msg);
+  };
+
+  return (
+    <>
+      <h1>Parent Component</h1>
+      <Child sendMessage={handleMessage} />
+    </>
+  );
+}
+
+export default App;
+```
+
+---
+
+## Passing Input Value from Child to Parent
+
+### Child Component
+
+```jsx
+import { useState } from "react";
+
+function Child({ getName }) {
+  const [name, setName] = useState("");
+
+  return (
+    <>
+      <input
+        type="text"
+        placeholder="Enter Name"
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <button onClick={() => getName(name)}>
+        Submit
+      </button>
+    </>
+  );
+}
+
+export default Child;
+```
+
+### Parent Component
+
+```jsx
+import Child from "./Child";
+
+function App() {
+  const receiveName = (name) => {
+    console.log(name);
+  };
+
+  return (
+    <>
+      <h1>Parent Component</h1>
+      <Child getName={receiveName} />
+    </>
+  );
+}
+
+export default App;
+```
+
+---
+
+## Why Use Child-to-Parent Communication?
+
+* Send form data to parent.
+* Update parent state from child.
+* Trigger parent functions.
+* Share information between components.
+
+---
+
+## Key Points
+
+* React data flow is usually Parent → Child.
+* Child cannot directly modify parent state.
+* Parent passes a function as a prop.
+* Child calls that function and sends data.
+* This is called "lifting data up".
+
+---
+
+# Day 7 Summary
+
+Today I learned how a child component can send data to a parent component.
+
+Since React follows one-way data flow, the parent passes a function to the child through props. The child calls that function and sends data back to the parent. This technique is commonly used for form handling, state updates, and component communication.
+
+
+
