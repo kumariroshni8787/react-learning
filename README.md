@@ -2063,3 +2063,249 @@ Rendering components based on user status
 Building a simple Login / Logout interface
 
 Conditional Rendering helps create dynamic user interfaces that change based on application state.
+
+
+
+# Day 12 - Lists & Keys
+
+## Introduction
+
+In React, we often need to display multiple items such as users, students, products, or tasks.
+
+Instead of writing elements manually, React allows us to render lists dynamically using JavaScript's `map()` method.
+
+---
+
+## map() Method
+
+The `map()` method loops through an array and returns a new array.
+
+React uses `map()` to create UI elements from data.
+
+### Syntax
+
+```jsx
+array.map((item) => {
+  return <Element />;
+});
+```
+
+### JavaScript Example
+
+```javascript
+const numbers = [1, 2, 3];
+
+const doubled = numbers.map((num) => num * 2);
+
+console.log(doubled);
+// [2, 4, 6]
+```
+
+---
+
+## Rendering Lists in React
+
+We can use `map()` to display multiple items on the screen.
+
+### Example
+
+```jsx
+function App() {
+  const fruits = ["Apple", "Banana", "Mango"];
+
+  return (
+    <ul>
+      {fruits.map((fruit, index) => (
+        <li key={index}>{fruit}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default App;
+```
+
+### Output
+
+* Apple
+* Banana
+* Mango
+
+React creates a list item for each element in the array.
+
+---
+
+## What are Keys?
+
+Keys are special attributes used by React to identify list items uniquely.
+
+They help React efficiently update and re-render lists when data changes.
+
+### Syntax
+
+```jsx
+<li key={uniqueValue}>Item</li>
+```
+
+### Example
+
+```jsx
+const users = [
+  { id: 1, name: "Rahul" },
+  { id: 2, name: "Aman" },
+  { id: 3, name: "Priya" }
+];
+
+function App() {
+  return (
+    <ul>
+      {users.map((user) => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default App;
+```
+
+---
+
+## Why are Keys Important?
+
+Without keys, React may have difficulty tracking which items changed.
+
+Benefits of keys:
+
+* Better performance
+* Efficient re-rendering
+* Prevents UI update issues
+* Helps React identify each item uniquely
+
+---
+
+## Best Practice for Keys
+
+✅ Use unique IDs from your data.
+
+```jsx
+<li key={user.id}>{user.name}</li>
+```
+
+⚠️ Avoid using array indexes as keys when list items can change.
+
+```jsx
+<li key={index}>{user.name}</li>
+```
+
+Use indexes only for simple static lists.
+
+---
+
+## Practice Example
+
+```jsx
+const users = [
+  { id: 1, name: "Rahul" },
+  { id: 2, name: "Aman" },
+  { id: 3, name: "Priya" }
+];
+
+function App() {
+  return (
+    <ul>
+      {users.map((user) => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default App;
+```
+
+### How It Works
+
+1. `users` contains an array of objects.
+2. `map()` loops through each user.
+3. A `<li>` is created for every user.
+4. `key={user.id}` gives each item a unique identity.
+5. React renders the list efficiently.
+
+---
+
+## Mini Task: Student List
+
+### Goal
+
+Display a list of students using `map()` and keys.
+
+### Example
+
+```jsx
+function App() {
+  const students = [
+    { id: 1, name: "Rahul" },
+    { id: 2, name: "Priya" },
+    { id: 3, name: "Aman" },
+    { id: 4, name: "Neha" }
+  ];
+
+  return (
+    <div>
+      <h2>Student List</h2>
+
+      <ul>
+        {students.map((student) => (
+          <li key={student.id}>
+            {student.name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Output
+
+* Rahul
+* Priya
+* Aman
+* Neha
+
+---
+
+## Key Concepts Learned
+
+* map() Method
+* Rendering Lists
+* Dynamic UI Generation
+* Keys in React
+* Unique Identifiers
+* Student List Project
+
+---
+
+## Best Practice
+
+* Use `map()` to render lists dynamically.
+* Always provide a unique `key` prop.
+* Prefer IDs over indexes for keys.
+* Keep list rendering simple and readable.
+
+📝 Day 12 Summary
+
+Today I learned how to render lists dynamically in React using the map() method.
+
+I practiced:
+
+Using map() to loop through arrays
+Rendering multiple elements from data
+Understanding the purpose of React keys
+Using unique IDs as keys
+Building a Student List application
+
+Lists and Keys are essential for displaying dynamic data efficiently in React applications.

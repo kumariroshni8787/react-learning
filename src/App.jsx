@@ -102,31 +102,50 @@
 // export default App;
 
 
-import { useState } from "react";
+// import { useState } from "react";
+
+// function App() {
+//   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+//   return (
+//     <div>
+//       <h1>Authentication App</h1>
+
+//       {isLoggedIn ? (
+//         <>
+//           <h2>Welcome User</h2>
+//           <button onClick={() => setIsLoggedIn(false)}>
+//             Logout
+//           </button>
+//         </>
+//       ) : (
+//         <>
+//           <h2>Please Login</h2>
+//           <button onClick={() => setIsLoggedIn(true)}>
+//             Login
+//           </button>
+//         </>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+const users = [
+  { id: 1, name: "Rahul" },
+  { id: 2, name: "Aman" },
+  { id: 3, name: "Priya" },
+  { id: 4, name: "neha" }
+];
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   return (
-    <div>
-      <h1>Authentication App</h1>
-
-      {isLoggedIn ? (
-        <>
-          <h2>Welcome User</h2>
-          <button onClick={() => setIsLoggedIn(false)}>
-            Logout
-          </button>
-        </>
-      ) : (
-        <>
-          <h2>Please Login</h2>
-          <button onClick={() => setIsLoggedIn(true)}>
-            Login
-          </button>
-        </>
-      )}
-    </div>
+    <ul>
+      {users.map((user) => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
   );
 }
 
