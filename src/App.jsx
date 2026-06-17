@@ -2,6 +2,8 @@
 
 // import Student from "./Student";
 
+import State from "./State";
+
 // function App() {
 //   return (
 //     <>
@@ -49,12 +51,13 @@
 // export default App;
 
 
-import Event from "./Event";
+// import Event from "./Event";
 
 function App() {
   return (
     <div>
-      <Event />
+      {/* <Event /> */}
+      <State/>
     </div>
   );
 }

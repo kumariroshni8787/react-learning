@@ -1377,3 +1377,217 @@ Keyboard events (onKeyDown)
 Mouse events (onMouseEnter, onMouseLeave)
 Form submission with onSubmit
 Using preventDefault()
+
+
+# Day 9: React State
+
+## What is State?
+
+State is a built-in React object used to store data that can change over time.
+
+Whenever the state changes, React automatically re-renders the component and updates the UI.
+
+### Key Points
+
+* State stores dynamic data.
+* State is managed inside a component.
+* Updating state causes the component to re-render.
+* State helps create interactive applications.
+
+---
+
+## Using State with `useState`
+
+React provides a Hook called `useState` to create and manage state in functional components.
+
+### Syntax
+
+```jsx
+const [state, setState] = useState(initialValue);
+```
+
+### Parameters
+
+* `state` → Current state value.
+* `setState` → Function used to update the state.
+* `initialValue` → Initial value of the state.
+
+---
+
+## Example: Counter Application
+
+```jsx
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+### Output
+
+* Initial count = 0
+* Clicking the button increases the count by 1.
+* React automatically updates the UI.
+
+---
+
+## Updating State
+
+### Increment
+
+```jsx
+setCount(count + 1);
+```
+
+### Decrement
+
+```jsx
+setCount(count - 1);
+```
+
+### Reset
+
+```jsx
+setCount(0);
+```
+
+---
+
+## State with String Values
+
+```jsx
+import { useState } from "react";
+
+function User() {
+  const [name, setName] = useState("John");
+
+  return (
+    <div>
+      <h2>{name}</h2>
+
+      <button onClick={() => setName("Rahul")}>
+        Change Name
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+## State with Boolean Values
+
+```jsx
+import { useState } from "react";
+
+function Toggle() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setIsVisible(!isVisible)}>
+        Toggle
+      </button>
+
+      {isVisible && <h2>Hello React</h2>}
+    </div>
+  );
+}
+```
+
+---
+
+## State Rules
+
+### 1. Never Modify State Directly ❌
+
+Wrong:
+
+```jsx
+count = count + 1;
+```
+
+Correct:
+
+```jsx
+setCount(count + 1);
+```
+
+---
+
+### 2. State Updates Trigger Re-render
+
+Whenever state changes:
+
+```jsx
+setCount(5);
+```
+
+React updates the UI automatically.
+
+---
+
+### 3. State is Component-Specific
+
+Each component maintains its own state.
+
+```jsx
+function App() {
+  return (
+    <>
+      <Counter />
+      <Counter />
+    </>
+  );
+}
+```
+
+Each counter will have its own independent state.
+
+---
+
+## Why State is Important?
+
+State allows React applications to:
+
+* Handle user input
+* Create counters
+* Show/hide elements
+* Manage forms
+* Build interactive user interfaces
+
+Without state, React components would display only static content.
+
+---
+
+## Quick Recap
+
+* State stores data that changes.
+* `useState()` is used to create state.
+* Updating state re-renders the component.
+* Use setter functions (`setState`) to update state.
+* State can store numbers, strings, booleans, arrays, and objects.
+* State makes React applications interactive.
+
+```
+```
+Day 9 Summary
+Learned about State in React.
+Understood the purpose of the useState Hook.
+Created and updated state values.
+Built simple examples using numbers, strings, and booleans.
+Learned that state updates automatically refresh the UI.
+Understood best practices for updating state.
