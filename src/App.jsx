@@ -189,14 +189,61 @@
 
 
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
+
+// function App() {
+//   useEffect(() => {
+//     console.log("Mounted");
+//   }, []);
+
+//   return <h1>Hello React</h1>;
+// }
+
+// export default App;
+
+
+
+import { useEffect, useState } from "react";
 
 function App() {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  async function fetchUsers() {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+
+    const data = await response.json();
+
+    setUsers(data);
+    setLoading(false);
+  }
+
   useEffect(() => {
-    console.log("Mounted");
+    fetchUsers();
   }, []);
 
-  return <h1>Hello React</h1>;
+  return (
+    <div>
+      <h1>User Data App</h1>
+
+      {loading ? (
+        <h2>Loading...</h2>
+      ) : (
+        users.map((user) => (
+          <div key={user.id}>
+            <h3>{user.name}</h3>
+            <p>Email: {user.email}</p>
+            <p>Phone: {user.phone}</p>
+            <p>Company: {user.company.name}</p>
+
+            <hr />
+          </div>
+        ))
+      )}
+    </div>
+  );
 }
 
 export default App;

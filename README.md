@@ -2441,3 +2441,204 @@ I understood:
 * How to update the browser tab title using `useEffect`
 
 This hook is important because it allows React components to interact with the outside world after rendering.
+
+
+
+
+# Day 14 - API Calling
+
+## 📖 Topics Covered
+
+* API Calling
+* `fetch()`
+* Async/Await
+
+---
+
+## What is an API?
+
+API (Application Programming Interface) allows applications to communicate with each other.
+
+In React, APIs are commonly used to:
+
+* Fetch data from servers
+* Send data to servers
+* Update existing data
+* Delete data
+
+Example:
+
+```javascript
+https://jsonplaceholder.typicode.com/users
+```
+
+This API returns a list of users in JSON format.
+
+---
+
+## Using fetch()
+
+`fetch()` is a built-in JavaScript method used to make HTTP requests.
+
+### Syntax
+
+```javascript
+fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
+```
+
+### Example
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
+```
+
+### Explanation
+
+1. `fetch()` sends a request to the API.
+2. API returns a response.
+3. `response.json()` converts response into JavaScript object.
+4. Data is available inside `.then()`.
+
+---
+
+## Async/Await
+
+`async/await` provides a cleaner way to work with asynchronous code.
+
+### Example
+
+```javascript
+async function getUsers() {
+  const response = await fetch(
+    "https://jsonplaceholder.typicode.com/users"
+  );
+
+  const data = await response.json();
+
+  console.log(data);
+}
+
+getUsers();
+```
+
+### Explanation
+
+* `async` makes a function asynchronous.
+* `await` pauses execution until the promise resolves.
+* Code becomes easier to read compared to multiple `.then()` blocks.
+
+---
+
+## Fetch Data in React
+
+### Using useEffect
+
+```javascript
+import { useEffect, useState } from "react";
+
+function Users() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function fetchUsers() {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+
+      const data = await response.json();
+
+      setUsers(data);
+    }
+
+    fetchUsers();
+  }, []);
+
+  return (
+    <div>
+      <h2>Users List</h2>
+
+      {users.map((user) => (
+        <p key={user.id}>{user.name}</p>
+      ))}
+    </div>
+  );
+}
+
+export default Users;
+```
+
+---
+
+## Practice Task: Fetch Users from API
+
+### Objective
+
+Fetch users from an API and display them on the screen.
+
+### Steps
+
+1. Create state using `useState`.
+2. Use `useEffect` to call API after component loads.
+3. Fetch data using `fetch()`.
+4. Convert response to JSON.
+5. Store data in state.
+6. Display users using `map()`.
+
+---
+
+## Mini Project: User Data App
+
+### Features
+
+* Fetch user data from API
+* Display user list
+* Show:
+
+  * Name
+  * Email
+  * Phone Number
+  * Company Name
+
+### Sample API
+
+```javascript
+https://jsonplaceholder.typicode.com/users
+```
+
+### Expected Output
+
+```text
+Leanne Graham
+Email: leanne@example.com
+Phone: 1-770-736-8031
+Company: Romaguera-Crona
+```
+
+---
+
+## Key Takeaways
+
+* APIs help applications exchange data.
+* `fetch()` is used to make API requests.
+* `response.json()` converts JSON into JavaScript objects.
+* `async/await` simplifies asynchronous code.
+* `useEffect()` is commonly used for API calls in React.
+* Store API data in state using `useState()`.
+* Render fetched data using `map()`.
+
+
+📌 Day 14 Summary
+Learned how APIs work and why they are used.
+Used fetch() to request data from an API.
+Learned async/await for handling asynchronous operations.
+Fetched user data and displayed it in React.
+Built a simple User Data App using API data.
+
