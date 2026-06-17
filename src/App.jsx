@@ -2,7 +2,7 @@
 
 // import Student from "./Student";
 
-import State from "./State";
+// import State from "./State";
 
 // function App() {
 //   return (
@@ -53,11 +53,48 @@ import State from "./State";
 
 // import Event from "./Event";
 
+// function App() {
+//   return (
+//     <div>
+//       {/* <Event /> */}
+//       <State/>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import { useState } from "react";
+
 function App() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
   return (
     <div>
-      {/* <Event /> */}
-      <State/>
+      <h2>Registration Form</h2>
+
+      <input
+        type="text"
+        placeholder="Enter Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <br />
+      <br />
+
+      <input
+        type="email"
+        placeholder="Enter Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <h3>Submitted Data</h3>
+
+      <p>Name: {name}</p>
+      <p>Email: {email}</p>
     </div>
   );
 }

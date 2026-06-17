@@ -1591,3 +1591,247 @@ Created and updated state values.
 Built simple examples using numbers, strings, and booleans.
 Learned that state updates automatically refresh the UI.
 Understood best practices for updating state.
+
+
+
+# Day 10 - Forms
+
+## Introduction
+
+Forms are used to collect user input in React applications.
+
+Examples:
+- Login Form
+- Registration Form
+- Contact Form
+- Search Form
+
+React handles form data using **Controlled Components**.
+
+---
+
+## Controlled Components
+
+A Controlled Component is a form element whose value is controlled by React state.
+
+### Why use Controlled Components?
+
+- React manages the form data.
+- Easy validation.
+- Better control over user input.
+- Single source of truth.
+
+### Example
+
+```jsx
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <h3>Name: {name}</h3>
+    </div>
+  );
+}
+
+export default App;
+```
+
+---
+
+## Input Handling
+
+Input handling means updating state whenever a user types into an input field.
+
+### Steps
+
+1. Create state using useState().
+2. Connect input value to state.
+3. Update state using onChange event.
+
+### Example
+
+```jsx
+import { useState } from "react";
+
+function App() {
+  const [email, setEmail] = useState("");
+
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  return (
+    <div>
+      <input
+        type="email"
+        value={email}
+        onChange={handleChange}
+        placeholder="Enter email"
+      />
+
+      <p>Email: {email}</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+---
+
+## Practice 1: Name Input
+
+```jsx
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <h2>Name Input</h2>
+
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <p>Hello, {name}</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Output
+
+- User enters a name.
+- State updates instantly.
+- Greeting updates automatically.
+
+---
+
+## Practice 2: Email Input
+
+```jsx
+import { useState } from "react";
+
+function App() {
+  const [email, setEmail] = useState("");
+
+  return (
+    <div>
+      <h2>Email Input</h2>
+
+      <input
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <p>Email: {email}</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Output
+
+- User enters an email.
+- State stores the value.
+- Display updates in real time.
+
+---
+
+## Mini Task: Registration Form
+
+### Goal
+
+Create a simple registration form using React state.
+
+### Example
+
+```jsx
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  return (
+    <div>
+      <h2>Registration Form</h2>
+
+      <input
+        type="text"
+        placeholder="Enter Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <br />
+      <br />
+
+      <input
+        type="email"
+        placeholder="Enter Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <h3>Submitted Data</h3>
+
+      <p>Name: {name}</p>
+      <p>Email: {email}</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+---
+
+## Key Concepts Learned
+
+- Forms in React
+- Controlled Components
+- useState with form inputs
+- Input Handling using onChange
+- Managing multiple input fields
+- Building a Registration Form
+
+---
+
+## Best Practice
+
+Always use Controlled Components in React forms because React can fully manage and track form data.
+
+📝 Day 10 Summary
+
+Today I learned how React handles form inputs using Controlled Components.
+
+I practiced:
+
+Creating form inputs with useState
+Handling user input using onChange
+Managing name and email fields
+Building a simple Registration Form
+Displaying form data dynamically on the screen
+
+This helped me understand how React controls and updates form data through state.
