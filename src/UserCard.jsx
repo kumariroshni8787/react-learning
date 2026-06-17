@@ -11,7 +11,7 @@
 
 
 
-//Inline CSS
+// Inline CSS
 
 // const UserCard = () => {
 //   return (
@@ -27,15 +27,15 @@
 
 
 
-//External CSS File
-import "./App.css";
-const UserCard = () => {
-  return (
-    <div>
-      <h1 className="title">Hello React</h1>
-      <p>ROSHNI KUMARI </p>
-    </div>
-  );
-};
+// //External CSS File
+// import "./App.css";
+// const UserCard = () => {
+//   return (
+//     <div>
+//       <h1 className="title">Hello React</h1>
+//       <p>ROSHNI KUMARI </p>
+//     </div>
+//   );
+// };
 
-export default UserCard;
+// export default UserCard;

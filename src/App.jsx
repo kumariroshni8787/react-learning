@@ -31,18 +31,31 @@
 // export default App;
 
 
-import Child from "./Child";
+// import Child from "./Child";
+
+// function App() {
+//   const handleData = (message) => {
+//     alert(message);
+//   };
+
+//   return (
+//     <>
+//       <h1>Parent Component</h1>
+//       <Child sendData={handleData} />
+//     </>
+//   );
+// }
+
+// export default App;
+
+
+import Event from "./Event";
 
 function App() {
-  const handleData = (message) => {
-    alert(message);
-  };
-
   return (
-    <>
-      <h1>Parent Component</h1>
-      <Child sendData={handleData} />
-    </>
+    <div>
+      <Event />
+    </div>
   );
 }
 

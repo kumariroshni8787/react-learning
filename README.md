@@ -1101,3 +1101,279 @@ Since React follows one-way data flow, the parent passes a function to the child
 
 
 
+# Day 8 - Events in React
+
+## Introduction
+
+Events in React allow us to respond to user actions such as:
+
+* Clicking a button
+* Typing in an input field
+* Hovering over an element
+* Submitting a form
+
+React handles events using **event handlers**.
+
+---
+
+## Event Handling Syntax
+
+In React, event names use **camelCase**.
+
+### Example
+
+```jsx
+function App() {
+  return (
+    <button onClick={handleClick}>
+      Click Me
+    </button>
+  );
+}
+
+function handleClick() {
+  alert("Button Clicked!");
+}
+```
+
+### Important Points
+
+* Use `onClick` instead of `onclick`.
+* Pass a function reference, not a function call.
+* Event names are written in camelCase.
+
+✅ Correct
+
+```jsx
+<button onClick={handleClick}>Click</button>
+```
+
+❌ Incorrect
+
+```jsx
+<button onclick={handleClick}>Click</button>
+```
+
+---
+
+## Click Event
+
+The most commonly used event in React.
+
+```jsx
+function App() {
+  const showMessage = () => {
+    alert("Hello React!");
+  };
+
+  return (
+    <button onClick={showMessage}>
+      Click Me
+    </button>
+  );
+}
+```
+
+---
+
+## Inline Event Handler
+
+We can also write event handlers directly inside JSX.
+
+```jsx
+<button onClick={() => alert("Button Clicked")}>
+  Click
+</button>
+```
+
+---
+
+## Passing Arguments to Event Handlers
+
+```jsx
+function App() {
+  const greetUser = (name) => {
+    alert(`Hello ${name}`);
+  };
+
+  return (
+    <button onClick={() => greetUser("John")}>
+      Greet
+    </button>
+  );
+}
+```
+
+---
+
+## Event Object
+
+React automatically provides an event object.
+
+```jsx
+function App() {
+  const handleClick = (event) => {
+    console.log(event);
+  };
+
+  return (
+    <button onClick={handleClick}>
+      Click
+    </button>
+  );
+}
+```
+
+### Uses of Event Object
+
+* Access event details
+* Prevent default behavior
+* Check target element
+
+Example:
+
+```jsx
+const handleClick = (e) => {
+  console.log(e.target);
+};
+```
+
+---
+
+## Input Events
+
+### onChange Event
+
+Triggered when input value changes.
+
+```jsx
+function App() {
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
+
+  return (
+    <input
+      type="text"
+      onChange={handleChange}
+    />
+  );
+}
+```
+
+---
+
+## Keyboard Events
+
+### onKeyDown
+
+Triggered when a key is pressed.
+
+```jsx
+<input
+  onKeyDown={(e) =>
+    console.log(e.key)
+  }
+/>
+```
+
+---
+
+## Mouse Events
+
+### onMouseEnter
+
+```jsx
+<div onMouseEnter={() => console.log("Mouse Entered")}>
+  Hover Here
+</div>
+```
+
+### onMouseLeave
+
+```jsx
+<div onMouseLeave={() => console.log("Mouse Left")}>
+  Hover Here
+</div>
+```
+
+---
+
+## Form Submit Event
+
+```jsx
+function App() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Form Submitted");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit">
+        Submit
+      </button>
+    </form>
+  );
+}
+```
+
+### Why use preventDefault()?
+
+By default, form submission reloads the page.
+
+```jsx
+e.preventDefault();
+```
+
+prevents the page refresh and allows React to handle the form.
+
+---
+
+## Common React Events
+
+| Event        | Description                          |
+| ------------ | ------------------------------------ |
+| onClick      | Triggered when an element is clicked |
+| onChange     | Triggered when input value changes   |
+| onSubmit     | Triggered when form is submitted     |
+| onKeyDown    | Triggered when a key is pressed      |
+| onMouseEnter | Triggered when mouse enters element  |
+| onMouseLeave | Triggered when mouse leaves element  |
+
+---
+
+## Best Practices
+
+* Use meaningful function names.
+* Keep event handlers small and focused.
+* Use arrow functions when passing arguments.
+* Avoid complex logic directly inside JSX.
+* Use `preventDefault()` when handling forms.
+
+---
+
+## Key Takeaways
+
+* React events use camelCase naming.
+* Event handlers are attached using JSX attributes.
+* Events help React respond to user interactions.
+* The event object provides useful event information.
+* Common events include click, input, keyboard, mouse, and form events.
+
+📌 Day 8 Summary
+
+Today you learned React Events, which allow applications to respond to user interactions.
+
+Topics covered:
+
+Event handling in React
+onClick event
+Inline event handlers
+Passing arguments to event handlers
+Event object (event / e)
+onChange event
+Keyboard events (onKeyDown)
+Mouse events (onMouseEnter, onMouseLeave)
+Form submission with onSubmit
+Using preventDefault()
