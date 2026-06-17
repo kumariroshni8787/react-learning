@@ -2309,3 +2309,135 @@ Using unique IDs as keys
 Building a Student List application
 
 Lists and Keys are essential for displaying dynamic data efficiently in React applications.
+
+
+
+# Day 13 - useEffect Hook
+
+## 📌 Topic Covered
+
+* useEffect Hook
+* Side Effects
+* Component Lifecycle
+
+---
+
+# What is useEffect?
+
+`useEffect` is a React Hook used to perform **side effects** in functional components.
+
+Examples of side effects:
+
+* Fetching data from an API
+* Updating the document title
+* Setting timers
+* Accessing browser storage
+* Adding event listeners
+
+### Syntax
+
+```jsx
+useEffect(() => {
+  // Side effect code
+}, []);
+```
+
+---
+
+# Component Lifecycle
+
+A React component goes through different phases:
+
+### 1. Mounting
+
+When the component is created and added to the DOM.
+
+### 2. Updating
+
+When state or props change and the component re-renders.
+
+### 3. Unmounting
+
+When the component is removed from the DOM.
+
+---
+
+# useEffect with Empty Dependency Array
+
+```jsx
+import { useEffect } from "react";
+
+function App() {
+  useEffect(() => {
+    console.log("Mounted");
+  }, []);
+
+  return <h1>Hello React</h1>;
+}
+
+export default App;
+```
+
+### Output
+
+```bash
+Mounted
+```
+
+### Explanation
+
+* Runs only once after the first render.
+* Similar to componentDidMount in class components.
+* Empty dependency array `[]` tells React to execute the effect only when the component mounts.
+
+---
+
+# Mini Task - Change Document Title
+
+```jsx
+import { useEffect } from "react";
+
+function App() {
+  useEffect(() => {
+    document.title = "React Learning";
+  }, []);
+
+  return <h1>useEffect Example</h1>;
+}
+
+export default App;
+```
+
+### Result
+
+Browser tab title changes to:
+
+```text
+React Learning
+```
+
+---
+
+# Key Points
+
+* `useEffect` handles side effects in React.
+* It runs after the component renders.
+* `[]` dependency array makes it run only once.
+* Useful for API calls, timers, document title updates, and event listeners.
+* Helps manage component lifecycle behavior in functional components.
+
+---
+
+# Day 13 Summary
+
+Today I learned the `useEffect` Hook in React.
+
+I understood:
+
+* What side effects are
+* React component lifecycle (Mount, Update, Unmount)
+* How to use `useEffect`
+* How to run an effect only once using an empty dependency array `[]`
+* How to update the browser tab title using `useEffect`
+
+This hook is important because it allows React components to interact with the outside world after rendering.

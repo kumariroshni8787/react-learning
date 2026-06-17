@@ -132,21 +132,71 @@
 
 // export default App;
 
-const users = [
-  { id: 1, name: "Rahul" },
-  { id: 2, name: "Aman" },
-  { id: 3, name: "Priya" },
-  { id: 4, name: "neha" }
-];
+// const users = [
+//   { id: 1, name: "Rahul" },
+//   { id: 2, name: "Aman" },
+//   { id: 3, name: "Priya" },
+//   { id: 4, name: "neha" }
+// ];
+
+// function App() {
+//   return (
+//     <ul>
+//       {users.map((user) => (
+//         <li key={user.id}>{user.name}</li>
+//       ))}
+//     </ul>
+//   );
+// }
+
+// export default App;
+
+
+
+// import { useState, useEffect } from "react";
+
+// function App() {
+//   const [count, setCount] = useState(0);
+
+//   useEffect(() => {
+//     document.title = `Count: ${count}`;
+//   }, [count]);
+
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       <button onClick={() => setCount(count + 1)}>
+//         Increase
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// import { useEffect } from "react";
+
+// function App() {
+//   useEffect(() => {
+//     document.title = "React Learning";
+//   }, []);
+
+//   return <h1>useEffect Example</h1>;
+// }
+
+// export default App;
+
+
+
+
+import { useEffect } from "react";
 
 function App() {
-  return (
-    <ul>
-      {users.map((user) => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
-  );
+  useEffect(() => {
+    console.log("Mounted");
+  }, []);
+
+  return <h1>Hello React</h1>;
 }
 
 export default App;
